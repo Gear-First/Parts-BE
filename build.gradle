@@ -31,12 +31,10 @@ dependencies {
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-<<<<<<< HEAD
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-=======
     runtimeOnly 'com.h2database:h2'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
->>>>>>> 6d6e2b1 (feat: dev parts search)
+
 }
 
 tasks.named('test') {
