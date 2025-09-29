@@ -1,6 +1,7 @@
 package com.hams.gearfirst.controller;
 
 import com.hams.gearfirst.entitiy.Part;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -9,6 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/parts")
+@CrossOrigin("http://localhost:5173")
 public class PartsController {
     @GetMapping
     public List<Part> getParts() {
