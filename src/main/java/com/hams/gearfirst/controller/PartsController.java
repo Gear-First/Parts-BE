@@ -8,6 +8,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/parts")
+@CrossOrigin("http://localhost:5173")
 public class PartsController {
 
     private final List<Part> parts = new ArrayList<>(); // 메모리에 저장
