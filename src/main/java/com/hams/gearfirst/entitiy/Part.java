@@ -17,8 +17,6 @@ public class Part {
     @Id
     @GeneratedValue
     private Long id;
-
     private String name;
     private int quantity;
-
 }
