@@ -54,4 +54,4 @@ jobs:
       - name: Deploy to GKE
         run: |
           gcloud container clusters get-credentials ${{ env.GKE_CLUSTER }} --region ${{ env.GKE_REGION }}
-          kubectl set image deployment/${{ env.DEPLOYMENT_NAME }} ${ env.SERVICE_NAME_}-container=${{ env.ARTIFACT_REGISTRY }}/${{ env.PROJECT_ID }}/${{ env.REPO_NAME }}/${{ env.SERVICE_NAME }}:${{ github.sha }}
+          kubectl set image deployment/${{ env.DEPLOYMENT_NAME }} ${ env.SERVICE_NAME }-container=${{ env.ARTIFACT_REGISTRY }}/${{ env.PROJECT_ID }}/${{ env.REPO_NAME }}/${{ env.SERVICE_NAME }}:${{ github.sha }}
