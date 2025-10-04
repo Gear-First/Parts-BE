@@ -16,19 +16,22 @@
 #  org.hibernate.SQL: debug
 
 server:
-  # 정상 종료(Graceful Shutdown) 기능을 활성화합니다.
-  shutdown: graceful
+  shutdown: graceful   # ✅ Spring Boot graceful shutdown 활성화
   servlet:
-    # Ingress 경로와 맞추기 위한 전체 Prefix
-    context-path: /parts
+    context-path: /parts   # 서비스 Prefix (Ingress 경로와 동일하게)
 
 spring:
   lifecycle:
-    # 각 종료 단계별 타임아웃을 30초로 설정하여, 로드밸런서가 연결을 해제할 시간을 충분히 줍니다.
-    timeout-per-shutdown-phase: 30s
+    timeout-per-shutdown-phase: 30s  # ✅ shutdown 단계별 타임아웃
 
 management:
   endpoint:
     health:
       probes:
-        enabled: true
+        enabled: true  # ✅ Kubernetes용 /liveness, /readiness 엔드포인트 활성화
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  server:
+    port: 8080
