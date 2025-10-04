@@ -23,15 +23,3 @@ server:
 spring:
   lifecycle:
     timeout-per-shutdown-phase: 30s  # ✅ shutdown 단계별 타임아웃
-
-management:
-  endpoint:
-    health:
-      probes:
-        enabled: true  # ✅ Kubernetes용 /liveness, /readiness 엔드포인트 활성화
-  endpoints:
-    web:
-      exposure:
-        include: health,info
-  server:
-    port: 8080
