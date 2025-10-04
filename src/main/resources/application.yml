@@ -26,3 +26,9 @@ spring:
   lifecycle:
     # 각 종료 단계별 타임아웃을 30초로 설정하여, 로드밸런서가 연결을 해제할 시간을 충분히 줍니다.
     timeout-per-shutdown-phase: 30s
+
+management:
+  endpoint:
+    health:
+      probes:
+        enabled: true
