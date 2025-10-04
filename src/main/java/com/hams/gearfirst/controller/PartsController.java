@@ -7,13 +7,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/parts")
+@RequestMapping("/")
 @CrossOrigin("http://localhost:5173")
 public class PartsController {
 
     private final List<Part> parts = new ArrayList<>(); // 메모리에 저장
 
-    @GetMapping
+    @GetMapping("/")
+    public void check() {
+        System.out.println("********************************");
+    }
+
+    @GetMapping("/api/v1/parts")
     public List<Part> getParts() {
         parts.add(new Part(1L, "엔진1", 10));
         parts.add(new Part(2L, "창문1", 15));
