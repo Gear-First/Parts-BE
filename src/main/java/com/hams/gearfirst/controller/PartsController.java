@@ -4,14 +4,16 @@ import com.hams.gearfirst.entitiy.Part;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @RequestMapping("/")
 @CrossOrigin("http://localhost:5173")
 public class PartsController {
 
-    private final List<Part> parts = new ArrayList<>(); // 메모리에 저장
+    private final Set<Part> parts = new HashSet<>(); // 메모리에 저장
 
     @GetMapping("/")
     public void check() {
@@ -19,7 +21,7 @@ public class PartsController {
     }
 
     @GetMapping("/api/v1/parts")
-    public List<Part> getParts() {
+    public Set<Part> getParts() {
         parts.add(new Part(1L, "엔진1", 10));
         parts.add(new Part(2L, "창문1", 15));
         parts.add(new Part(3L, "오일1", 40));
