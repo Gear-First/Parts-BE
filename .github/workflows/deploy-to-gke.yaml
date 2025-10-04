@@ -38,6 +38,10 @@ jobs:
         with:
           project_id: ${{ env.PROJECT_ID }}
 
+      # --- 문제 1 해결: gke-gcloud-auth-plugin 설치 단계 추가 ---
+      - name: Install gke-gcloud-auth-plugin
+        run: gcloud components install gke-gcloud-auth-plugin
+
       # 4. Docker 이미지를 빌드하고 Artifact Registry에 푸시합니다.
       # 이미지 태그는 고유한 값인 Git 커밋 해시(github.sha)를 사용합니다.
       - name: Build and Push Docker Image
@@ -50,4 +54,4 @@ jobs:
       - name: Deploy to GKE
         run: |
           gcloud container clusters get-credentials ${{ env.GKE_CLUSTER }} --region ${{ env.GKE_REGION }}
-          kubectl set image deployment/${{ env.DEPLOYMENT_NAME }} ${_SERVICE_NAME_}-container=${{ env.ARTIFACT_REGISTRY }}/${{ env.PROJECT_ID }}/${{ env.REPO_NAME }}/${{ env.SERVICE_NAME }}:${{ github.sha }}
+          kubectl set image deployment/${{ env.DEPLOYMENT_NAME }} ${ env.SERVICE_NAME_}-container=${{ env.ARTIFACT_REGISTRY }}/${{ env.PROJECT_ID }}/${{ env.REPO_NAME }}/${{ env.SERVICE_NAME }}:${{ github.sha }}
