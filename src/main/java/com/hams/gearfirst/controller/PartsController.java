@@ -25,7 +25,6 @@ public class PartsController {
         parts.add(new Part(1L, "엔진1", 10));
         parts.add(new Part(2L, "창문1", 15));
         parts.add(new Part(3L, "오일1", 40));
-        System.out.println("test code");
         return parts;
     }
 
