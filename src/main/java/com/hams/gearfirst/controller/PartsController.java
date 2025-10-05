@@ -22,9 +22,9 @@ public class PartsController {
 
     @GetMapping("/api/v1/parts")
     public Set<Part> getParts() {
-        parts.add(new Part(1L, "엔진1", 10));
-        parts.add(new Part(2L, "창문1", 15));
-        parts.add(new Part(3L, "오일1", 40));
+        parts.add(new Part(1L, "엔진2", 10));
+        parts.add(new Part(2L, "창문2", 15));
+        parts.add(new Part(3L, "오일2", 40));
         return parts;
     }
 
